@@ -61,46 +61,6 @@ def registerUser(request):
         message = {'detail': 'User with this email already exists'}
         return Response(message)
 
-# @api_view(['POST'])
-# def registerUser(request):
-#     data = request.data
-
-#     try:
-#         user = User.objects.create_user(
-#             email=data['email'],
-#             first_name=data['first_name'],
-#             username=data['email'],
-#             password=make_password(data['password']),
-#         )
-
-#         serializer = UserSerializerWithToken(user, many=False)
-#         return Response(serializer.data)
-#     except:
-#         message = {'detail': 'User with email: {data["email"]} already exists'}
-#         return Response(message)
-
-# @api_view(['POST'])
-# def registerUser(request):
-#     data = request.data
- 
-#     try:
-#         user = User.objects.create_user(
-#             email=data['email'],
-#             first_name=data['first_name'],
-#             last_name=data['last_name'],
-#             password=data['password'],
-#             username=data['first_name'] + data['last_name'],
-#             is_active=True,
-#             is_student=True,
-#         )
-#         serializer = UserSerializerWithToken(user, many=False)
-#         # successMessage = "user Registered successfully!"
-#         return Response(serializer.data)
-#     except Exception as e:
-#         message = {'detail': f'User with email: {data["email"]} already exists'}
-#         # return Response(message, status=status.HTTP_400_BAD_REQUEST)
-#         return Response(message)
-
 
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
